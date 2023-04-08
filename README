@@ -1,0 +1,11 @@
+This is the repository for a project completed during my time at MIT. We created a MIP (Mixed Integer Program) to model the global distribution of food items to all regions of the world at the granularity of a per-country distribution plan. 
+
+We have sourced statistics and measures from the USDA, the WHO, and the UN to understand country populations, global food production measures, and per-capita nutritional requirements.
+
+The MIP created serves to minimize transportation costs, as proxied by arc-distance traveled (this assumes a direct displacement measure of flights) and using capacity information from a Boeing 747-XL to determine the integer number of trips required. Additionally, we consider a worst case estimation of the number of people left hungry--assuming that if a country lacks the amount of macromolecules necessary for more than two macromolecule groups, for instance, we consider this to imply two people are left unsatisfied, instead of one person lacking their needs for two macromolecule groupings. We also consider the food items produced to be divisible by arbitrary decimals; this is a permissible assumption on our part, as the units provided for food groups are 100kg.
+
+After solving the MVP, a model for direct producer-to-consumer shipments of all food items available, we add further layers of complexity to the problem. This is accomplished by allowing for reduced-cost 'hub' shipments, wherein food is sent from several countries in one batch shipment to a central country in a region, as France is to Europe for instance. This is analogous to situations which arise in the real world where aggregated orders cost less per capita than a comparable number of individual orders. 
+
+Additionally, we consider robustness in the problem by varying the real supply at 80% of the original values per country, and simultaneously considering demand at 120% of the original values per country.
+
+At these exacerbated values, we encounter situations where there is not sufficient supply to feed all persons, and so we must consider questions of equity in distribution and which countries must go unprovided for. This is the next step which I would consider, given the time to focus exclusively on this and the mathematical implementation of it.
